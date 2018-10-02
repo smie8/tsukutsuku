@@ -92,8 +92,8 @@ var baseurl="https://rata.digitraffic.fi/api/v1";
 var loppuurl = "/live-trains/station/"
 
 function haku() {
-    lahtoasema = document.getElementById("lahtoasema").value;
-    paateasema = document.getElementById("paateasema").value;
+    lahtoasema = document.getElementById("asema1").value;
+    paateasema = document.getElementById("asema2").value;
     console.log(lahtoasema);
     console.log(paateasema);
     var osoite = baseurl + loppuurl + lahtoasema + "/" + paateasema;
