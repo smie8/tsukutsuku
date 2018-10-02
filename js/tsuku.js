@@ -3,8 +3,23 @@
 
 /* alustaa drop-down menut joista valita lähtö- ja pääteasema*/
 // to do: luetaan tiedostolta lista kaikista suomen asemista
-var asemat = {HKI: "Helsinki", JY: "Jyväskylä", KUO: "Kuopio", LH: "Lahti", OL: "Oulu",
+
+var lahtoasemanValinta = document.getElementById("lahtoasema");
+var paateasemanValinta = document.getElementById("paateasema");
+$.getJSON("files/asemat.json", function( data ) {
+    $.each(data, function(index, d){
+        var optio = document.createElement("option");
+        optio.value = d.id;
+        optio.innerText = d.asema;
+        lahtoasemanValinta.appendChild(optio.cloneNode(true));
+        paateasemanValinta.appendChild(optio.cloneNode(true));
+    });
+});
+
+// vanha versio:
+/*var asemat = {HKI: "Helsinki", JY: "Jyväskylä", KUO: "Kuopio", LH: "Lahti", OL: "Oulu",
     ROI: "Rovaniemi", TPE: "Tampere", TKU: "Turku"};
+
 var lahtoasemanValinta = document.getElementById("lahtoasema");
 var paateasemanValinta = document.getElementById("paateasema");
 for (var id in asemat) {
@@ -13,7 +28,7 @@ for (var id in asemat) {
     optio.innerText = asemat[id];
     lahtoasemanValinta.appendChild(optio.cloneNode(true));
     paateasemanValinta.appendChild(optio.cloneNode(true));
-}
+}*/
 
 var taulukko = document.getElementById("haetuttiedot");
 var xhr = new XMLHttpRequest();
