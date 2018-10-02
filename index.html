@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tsuku - Junatietosovellus</title>
+    <link rel="stylesheet" href="css/tyylit.css"/>
+    <script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+</head>
+<body>
+
+<h1>Tsukutsuku</h1>
+
+<table>
+    <tr>
+        <th>Mistä</th>
+        <th>Mihin</th>
+    </tr>
+    <tr>
+        <td><select id="lahtoasema">
+        </select></td>
+        <td><select id="paateasema">
+        </select></td>
+    </tr>
+</table>
+<button onclick="haku();" id="hakukomento">Hae tiedot</button></br>
+
+
+<p>Junat välillä <span id="lahto"></span> - <span id="paate"></span>:</p>
+
+<table id="tietotaulukko">
+<thead>
+<tr>
+    <th>Juna</th>
+    <th>Lähtee</th>
+    <th>Saapuu</th>
+    <th>Määräasema</th>
+</tr>
+</thead>
+<tbody id="haetuttiedot"></tbody>
+</table>
+
+<script src="js/tsuku.js"></script>
+
+</body>
+</html>
