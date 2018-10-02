@@ -1,0 +1,15 @@
+[{"id": "AIN", "asema": "Ainola"},
+  {"id": "ALV", "asema": "Alavus"},
+  {"id": "AVP", "asema": "Aviapolis"},
+  {"id": "DRA", "asema": "Dragsvik"},
+  {"id": "EPZ", "asema": "Eläinpuisto-Zoo"},
+  {"id": "ENO", "asema": "Eno"},
+  {"id": "HKI", "asema": "Helsinki"},
+  {"id": "JY", "asema": "Jyväskylä"},
+  {"id": "KUO", "asema": "Kuopio"},
+  {"id": "LH", "asema": "Lahti"},
+  {"id": "OL", "asema": "Oulu"},
+  {"id": "ROI", "asema": "Rovaniemi"},
+  {"id": "TPE", "asema": "Tampere"},
+  {"id": "TKU", "asema": "Turku"}
+]
