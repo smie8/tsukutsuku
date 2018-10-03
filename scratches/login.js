@@ -1,4 +1,20 @@
+// DONE
+localStorage.setItem("oletus", JSON.stringify({käyttäjänimi: "oletus", salasana: "",
+    vari: "kel", lahto: "", paate: ""}));
 
+
+// DONE
+var kirjautunutHenkilo = localStorage.getItem('kirjautunutNyt');
+var kirjautunutHenkiloJson = JSON.parse(localStorage.getItem(kirjautunutHenkilo));
+
+//asetaKirjautunut("oletus");
+
+// function asetaKirjautunut(avain) {
+//     /* kirjautunut on JSON olio */
+//     localStorage.setItem('kirjautunutNyt', localStorage.getItem(avain).käyttäjänimi);
+// }
+
+// DONE
 function kirjautuminen() {
     var inputUsername= document.getElementById('username2');
     var inputPassword= document.getElementById('password2');
@@ -18,9 +34,7 @@ function kirjautuminen() {
     }
 }
 
-var kirjautunutHenkilo = localStorage.getItem('kirjautunutNyt');
-var kirjautunutHenkiloJson = JSON.parse(localStorage.getItem(kirjautunutHenkilo));
-
+// DONE
 function preferenssi() {
     var valinta = document.getElementById("valinnat").value;
     $("body").attr("class", valinta);
@@ -32,6 +46,7 @@ function preferenssi() {
     }
 }
 
+// DONE
 function kirjauduUlos() {
 
     if(kirjautunutHenkilo !== undefined){

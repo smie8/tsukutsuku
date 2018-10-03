@@ -1,3 +1,4 @@
+// DONE
 /* alustaa drop-down menut joista valita lähtö- ja pääteasema*/
 var lahtoasemanValinta = document.getElementById("lahtoasema");
 var paateasemanValinta = document.getElementById("paateasema");
@@ -79,12 +80,11 @@ function haePerusTiedot(tulos) {
 var baseurl="https://rata.digitraffic.fi/api/v1";
 var loppuurl = "/live-trains/station/"
 
-$("#asema1").attr("value", kirjautunutHenkiloJson.lahto);
-$("#asema2").attr("value", kirjautunutHenkiloJson.paate);
+
+// $("#asema1").attr("value", kirjautunutHenkiloJson.lahto);
+// $("#asema2").attr("value", kirjautunutHenkiloJson.paate);
 
 function haku() {
-
-    localStorage.setItem(undefined, JSON.stringify({käyttäjänimi: "", salasana: "", vari: "kel", lahto: "", paate: ""}));
     lahtoasema = document.getElementById("asema1").value;
     paateasema = document.getElementById("asema2").value;
     kirjautunutHenkiloJson.lahto=lahtoasema;
@@ -94,12 +94,14 @@ function haku() {
     console.log(lahtoasema);
     console.log(paateasema);
 
+
+
     // var currentTime = new Date();
 
     // tee if statementit
 
-    kalenteri = document.getElementById("lahtopaiva").value.toString();
-    var osoite = baseurl + loppuurl + lahtoasema + "/" + paateasema + "/?departure_date=" + kalenteri;
+    valittuPaiva = document.getElementById("lahtopaiva").value.toString();
+    var osoite = baseurl + loppuurl + lahtoasema + "/" + paateasema + "/?departure_date=" + valittuPaiva;
     console.log(osoite);
     xhr.open('get', osoite);
     xhr.send();

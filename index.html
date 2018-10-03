@@ -5,34 +5,35 @@
     <title>Tsuku - Junatietosovellus</title>
     <link rel="stylesheet" href="css/tyylit.css"/>
     <script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
-    <script src="js/login.js"></script>
+    <!--<script src="js/login.js"></script>-->
+
 </head>
 <body class="kel">
 
 <!--logokuva-->
 <!--<div class="banner"><img src="gfx/logo_hor.png" class="img-responsive"></div>-->
 
-<select id="valinnat" onchange="preferenssi()" value="kel">
+<select id="valinnat" onchange="muutaVaripreferenssi()" value="kel">
+    <option value="kel">Pikachu</option>
     <option value="pun">Cherry</option>
     <option value="sin">Ocean</option>
-    <option value="kel">Pikachu</option>
     <option value="vih">Peppermint</option>
 </select>
 
 <a href="register.html">Ei käyttäjätunnusta? Rekisteröidy!</a>
 
-<!--TO DO: kirjautuminen poistuu kun sisäänkirjautunut-->
-<!--TO DO: näyttää kirjautuneen käyttäjän-->
-<!--TO DO: kirjaudu ulos - palauttaa lähtöasetukset-->
+<div id="kirjautumispaska">
 <H2>Kirjautuminen</H2>
 <p>Syötä käyttäjätunnus ja salasana</p>
-<form method="get" action="" onsubmit="return kirjautuminen();" id="signon">
+<form method="get" action="" onsubmit="kirjautuminen(event)" id="signon">
     <input type="text" id="username2" placeholder="Käyttäjätunnus" required value="" /><br />
     <input type="password" id="password2" placeholder="Salasana" required value="" /><br />
     <input type="submit" value="Kirjaudu" />
 </form>
+</div>
 <input type="button" onclick="kirjauduUlos()" value="Kirjaudu ulos">
 
+<p id="tervetuloa"></p>
 
 <table>
     <tr>
@@ -68,7 +69,9 @@
 <tbody id="haetuttiedot"></tbody>
 </table>
 
-<script src="js/tsuku.js"></script>
+<!--<script src="js/tsuku.js"></script>-->
+<script src="js/alussa.js"></script>
+<script src="js/lopussa.js"></script>
 
 </body>
 </html>
