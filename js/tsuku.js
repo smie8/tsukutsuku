@@ -83,6 +83,8 @@ $("#asema1").attr("value", kirjautunutHenkiloJson.lahto);
 $("#asema2").attr("value", kirjautunutHenkiloJson.paate);
 
 function haku() {
+
+    localStorage.setItem(undefined, JSON.stringify({käyttäjänimi: "", salasana: "", vari: "kel", lahto: "", paate: ""}));
     lahtoasema = document.getElementById("asema1").value;
     paateasema = document.getElementById("asema2").value;
     kirjautunutHenkiloJson.lahto=lahtoasema;

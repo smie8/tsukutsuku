@@ -1,11 +1,15 @@
 body.pun {
-    background-color: red;
+    background-color: rgb(255, 89, 87);
 }
 
 body.sin {
-    background-color: deepskyblue;
+    background-color: rgb(87, 179, 255);
 }
 
 body.kel {
-    background-color: yellow;
+    background-color: rgb(255, 224, 87);
+}
+
+body.vih {
+    background-color: rgb(87, 255, 148);
 }
