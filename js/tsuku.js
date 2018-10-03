@@ -22,7 +22,12 @@ xhr.onreadystatechange = function() {
             var tulos = JSON.parse(xhr.responseText);
             console.dir(tulos);
             // TO DO: myöhemmin tässä ohjataan käyttäjän valitseman toiminnallisuuden mukaiseen funktioon
-            haePerusTiedot(tulos);
+            if (tulos.code === "TRAIN_NOT_FOUND") {
+                console.log("ei junia")
+                $("<span>").text("Ei junia annetuilla tiedoilla").appendTo("#haetuttiedot");
+            } else {
+                haePerusTiedot(tulos);
+            }
         } else {
             alert("Haku epäonnistui");
             // lisätoiminnallisuuksia
@@ -63,9 +68,9 @@ function haePerusTiedot(tulos) {
         var lahtoaika = new Date(juna.timeTableRows[j].scheduledTime).toLocaleTimeString("fi", muoto);
         var saapumisaika = new Date(juna.timeTableRows[k].scheduledTime).toLocaleTimeString("fi", muoto);
 
-        $("<td>").text(juna.trainCategory).appendTo("#rivi"+i);
-        $("<td>").text(lahtoaika).appendTo("#rivi"+i);
-        $("<td>").text(saapumisaika).appendTo("#rivi"+i);
+        $("<td>").text(juna.trainType+juna.trainNumber).appendTo("#rivi"+i);
+        $("<td>").text(juna.timeTableRows[j].stationShortCode + " " + lahtoaika).appendTo("#rivi"+i);
+        $("<td>").text(juna.timeTableRows[k].stationShortCode + " " + saapumisaika).appendTo("#rivi"+i);
         $("<td>").text(juna.timeTableRows[juna.timeTableRows.length-1].stationShortCode).appendTo("#rivi"+i);
     }
 }
