@@ -5,8 +5,7 @@
     <title>Tsuku - Junatietosovellus</title>
     <link rel="stylesheet" href="css/tyylit.css"/>
     <script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
-    <script src="login.js"></script>
-    <script src="tsuku.js"></script>
+    <script src="js/login.js"></script>
 </head>
 <body class="pun">
 
@@ -24,15 +23,15 @@
 <!--TO DO: kirjautuminen poistuu kun sisäänkirjautunut-->
 <!--TO DO: näyttää kirjautuneen käyttäjän-->
 <!--TO DO: kirjaudu ulos - palauttaa lähtöasetukset-->
-<H2>Kirjautuminen</H2>
-<p>Syötä käyttäjätunnus ja salasana</p>
+<H2 class="kirjautuminen">Kirjautuminen</H2>
+<p class="kirjautuminen">Syötä käyttäjätunnus ja salasana</p>
 <form method="get" action="" onsubmit="return kirjautuminen();" id="signon">
-    <input type="text" id="username2" placeholder="Käyttäjätunnus" required value="" /><br />
-    <input type="password" id="password2" placeholder="Salasana" required value="" /><br />
-    <input type="submit" value="Kirjaudu" />
+    <input type="text" id="username2" placeholder="Käyttäjätunnus" required value="" class="kirjautuminen" /><br />
+    <input type="password" id="password2" placeholder="Salasana" required value="" class="kirjautuminen" /><br />
+    <input type="submit" value="Kirjaudu" class="kirjautuminen" />
 </form>
 <input type="button" onclick="kirjauduUlos()" value="Kirjaudu ulos">
-
+<p id="tervetuloaKirjautunut"></p>
 
 <table>
     <tr>
@@ -62,8 +61,9 @@
 </thead>
 <tbody id="haetuttiedot"></tbody>
 </table>
-
 <script src="js/tsuku.js"></script>
-
+<!--<script>-->
+    <!--$("<p>").text("Tervetuloa junailemaan, " + kirjautunut).appendTo("#tervetuloaKirjautunut");-->
+<!--</script>-->
 </body>
 </html>

@@ -9,3 +9,7 @@ body.sin {
 body.kel {
     background-color: yellow;
 }
+
+.kirjautuminen {
+    display: block;
+}

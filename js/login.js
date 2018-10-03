@@ -12,10 +12,18 @@ function kirjautuminen() {
         localStorage.setItem('kirjautunutNyt', kirjautunut);
         alert("Tervetuloa palveluun " + paikallinenData.käyttäjänimi + "!");
         window.location.href = "index.html";
+        //$('.kirjautuminen').hide();
+
+
         return false;
     } else {
         alert("Virheellinen käyttäjätunnus ja/tai salasana");
     }
+
+
+    //$.text('Tervetuloa junailemaan, ' + kirjautunut).appendTo('#tervetuloaKirjautunut');
+    //document.getElementById('tervetuloaKirjautunut').innerHTML = "Tervetuloa junailemaan, " + kirjautunut;
+
 }
 
 var kirjautunutHenkilo = localStorage.getItem('kirjautunutNyt');
@@ -40,6 +48,9 @@ function kirjauduUlos() {
         $("#asema1").attr("value", "");
         $("#asema2").attr("value", "");
     }
+
+    $('#tervetuloaKirjautunut').text("");
+    $('.kirjautuminen').show();
 
 }
 

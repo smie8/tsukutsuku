@@ -1,4 +1,9 @@
+if(kirjautunutHenkilo !== 'undefined') { //|| kirjautunutHenkilo == null
+    $('.kirjautuminen').hide();
+    document.getElementById('tervetuloaKirjautunut').append('Tervetuloa tsukutsukuun, ' + kirjautunutHenkilo);
+    console.log("Moro" + kirjautunutTeksti);
 
+}
 
 
 /* alustaa drop-down menut joista valita lähtö- ja pääteasema*/
