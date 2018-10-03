@@ -1,9 +1,4 @@
-
-
-
 /* alustaa drop-down menut joista valita lähtö- ja pääteasema*/
-// to do: luetaan tiedostolta lista kaikista suomen asemista
-
 var lahtoasemanValinta = document.getElementById("lahtoasema");
 var paateasemanValinta = document.getElementById("paateasema");
 $.getJSON("files/asemat.json", function( data ) {
@@ -16,6 +11,7 @@ $.getJSON("files/asemat.json", function( data ) {
     });
 });
 
+/* hakee junan tiedot digitrafficista*/
 var taulukko = document.getElementById("haetuttiedot");
 var xhr = new XMLHttpRequest();
 var lahtoasema = "";
@@ -35,28 +31,29 @@ xhr.onreadystatechange = function() {
     }
 };
 
+/* lisää junan tiedot index.html:ään*/
 function haePerusTiedot(tulos) {
     while (taulukko.firstChild) {
         taulukko.removeChild(taulukko.firstChild);
     }
-    // ks. jostain mistä nämä tulevat
+
     var muoto = {hour: '2-digit', minute: '2-digit', hour12: false};
     for (var i = 0; i < tulos.length; ++i) {
         var juna = tulos[i];
+
+        /* luodaan rivi, jolle kyseisen junan tiedot tallentuu */
         $("<tr>").attr("id", "rivi"+i).appendTo("#haetuttiedot");
 
         var j = 0;
         var k = juna.timeTableRows.length-1;
-
-        // TO DO: koodissa on toistoa, muokkaa vähemmän haisevaksi
-        // haetaan lähtöaseman indeksi timeTableRowsista
+        /* haetaan lähtöaseman indeksi timeTableRowsista */
         for (var jj in juna.timeTableRows) {
             // testataan jyväskylällä
             if (juna.timeTableRows[jj].stationShortCode === lahtoasema && tulos[i].timeTableRows[jj].type === "DEPARTURE") {
                 j = jj;
             }
         }
-        // haetaan pääteaseman indeksi timeTableRowsista
+        /* haetaan pääteaseman indeksi timeTableRowsista */
         for (var kk in juna.timeTableRows) {
             if (juna.timeTableRows[kk].stationShortCode === paateasema && tulos[i].timeTableRows[kk].type === "ARRIVAL") {
                 k = kk;
@@ -89,7 +86,13 @@ function haku() {
 
     console.log(lahtoasema);
     console.log(paateasema);
-    var osoite = baseurl + loppuurl + lahtoasema + "/" + paateasema;
+
+    // var currentTime = new Date();
+
+    // tee if statementit
+
+    kalenteri = document.getElementById("lahtopaiva").value.toString();
+    var osoite = baseurl + loppuurl + lahtoasema + "/" + paateasema + "/?departure_date=" + kalenteri;
     console.log(osoite);
     xhr.open('get', osoite);
     xhr.send();
