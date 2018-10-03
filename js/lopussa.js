@@ -14,8 +14,8 @@ $.getJSON("files/asemat.json", function( data ) {
 /* piilottaa sisäänkirjautumisalueen, kun käyttäjä on kirjautunut */
 if ((kirjautunutHenkilo !== "oletus") && (kirjautunutHenkilo !== null) && (kirjautunutHenkilo !== undefined)) {
     console.log("tulostaaaa");
-    $("#kirjautumispaska").hide();
-    $("#tervetuloa").text("Tervetuloa!");
+    $(".piilotaKunKirjautunut").hide();
+    $("#tervetuloa").text("Tervetuloa, " + kirjautunutHenkiloJson.käyttäjänimi + "!").after("<span>&nbsp;&nbsp;</span>");
 }
 
 /* asettaa sisäänkirjautuneen käyttäjän preferenssit voimaan */
@@ -78,7 +78,7 @@ function haePerusTiedot(tulos) {
         var saapumisaika = new Date(juna.timeTableRows[k].scheduledTime).toLocaleTimeString("fi", muoto);
 
         $("<td>").text(juna.trainType+juna.trainNumber).appendTo("#rivi"+i);
-        $("<td>").text(juna.timeTableRows[j].stationShortCode + " " + lahtoaika).appendTo("#rivi"+i);
+        $("<td>").text(juna.departureDate + " " + juna.timeTableRows[j].stationShortCode + " " + lahtoaika).appendTo("#rivi"+i);
         $("<td>").text(juna.timeTableRows[k].stationShortCode + " " + saapumisaika).appendTo("#rivi"+i);
         $("<td>").text(juna.timeTableRows[juna.timeTableRows.length-1].stationShortCode).appendTo("#rivi"+i);
     }

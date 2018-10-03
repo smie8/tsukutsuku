@@ -6,34 +6,52 @@
     <link rel="stylesheet" href="css/tyylit.css"/>
     <script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
     <!--<script src="js/login.js"></script>-->
-
+    <script src="js/alussa.js"></script>
 </head>
 <body class="kel">
 
 <!--logokuva-->
-<!--<div class="banner"><img src="gfx/logo_hor.png" class="img-responsive"></div>-->
+<div class="uloinBoksi">
 
+<div class="bannerBoksi">
+<div class="banner"><img src="gfx/logo.png" class="img-responsive"></div>
+</div>
+
+<div class="yläpalkki">
+
+<div class="teemavalikko">
 <select id="valinnat" onchange="muutaVaripreferenssi()" value="kel">
-    <option value="kel">Pikachu</option>
-    <option value="pun">Cherry</option>
-    <option value="sin">Ocean</option>
-    <option value="vih">Peppermint</option>
+    <option value="teema" disabled>Teema</option>
+    <option value="kel" class="keltainen">Pikachu</option>
+    <option value="pun" class="punainen">Cherry</option>
+    <option value="sin" class="sininen">Ocean</option>
+    <option value="vih" class="vihreä">Peppermint</option>
 </select>
+</div>
 
-<a href="register.html">Ei käyttäjätunnusta? Rekisteröidy!</a>
-
-<div id="kirjautumispaska">
-<H2>Kirjautuminen</H2>
-<p>Syötä käyttäjätunnus ja salasana</p>
+<div class="kirjautumisalue">
+<div class="piilotaKunKirjautunut">
+<div class="kirjautumisalue2">
+<p class="kirjautumisalue3">Kirjaudu sisään</p>
 <form method="get" action="" onsubmit="kirjautuminen(event)" id="signon">
-    <input type="text" id="username2" placeholder="Käyttäjätunnus" required value="" /><br />
-    <input type="password" id="password2" placeholder="Salasana" required value="" /><br />
+    <input type="text" id="username2" placeholder="Käyttäjätunnus" required value="" class="kirjautumisalue3"/>
+    <input type="password" id="password2" placeholder="Salasana" required value="" class="kirjautumisalue3"/>
     <input type="submit" value="Kirjaudu" />
 </form>
 </div>
-<input type="button" onclick="kirjauduUlos()" value="Kirjaudu ulos">
+</div>
 
-<p id="tervetuloa"></p>
+<div class="piilotaKunKirjautunut">
+<a href="register.html" class="kirjautumisalue4">Ei käyttäjätunnusta? Rekisteröidy!</a>
+</div>
+
+<p id="tervetuloa" class="kirjautumisalue5"></p>
+<input type="button" onclick="kirjauduUlos()" value="Kirjaudu ulos">
+</div>
+</div>
+
+<div class="junatietoRuutu">
+<h1>Hae junatietoja</h1>
 
 <table>
     <tr>
@@ -50,7 +68,6 @@
 
 
 <input type="date" id="lahtopaiva" name="valittuPaiva">
-
 
 <button onclick="haku();" id="hakukomento">Hae tiedot</button></br>
 
@@ -69,8 +86,12 @@
 <tbody id="haetuttiedot"></tbody>
 </table>
 
+</div>
+
+</div>
+
 <!--<script src="js/tsuku.js"></script>-->
-<script src="js/alussa.js"></script>
+
 <script src="js/lopussa.js"></script>
 
 </body>

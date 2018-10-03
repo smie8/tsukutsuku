@@ -1,15 +1,120 @@
-body.pun {
-    background-color: rgb(255, 89, 87);
+:root {
+    --punainen: rgb(255, 89, 87);
+    --sininen: rgb(87, 179, 255);
+    --keltainen: rgb(255, 224, 87);
+    --vihreä: rgb(87, 255, 148);
 }
 
+body.pun {
+    /*background-color: rgb(255, 89, 87);*/
+    background-color: var(--punainen);
+ }
+
 body.sin {
-    background-color: rgb(87, 179, 255);
+    background-color: var(--sininen);
 }
 
 body.kel {
-    background-color: rgb(255, 224, 87);
+    background-color: var(--keltainen);
 }
 
 body.vih {
-    background-color: rgb(87, 255, 148);
+    background-color: var(--vihreä);
+}
+
+option.punainen {
+    background-color: var(--punainen);
+}
+
+option.keltainen {
+    background-color: var(--keltainen);
+}
+
+option.vihreä {
+    background-color: var(--vihreä);
+}
+
+option.sininen {
+    background-color: var(--sininen);
+}
+
+/* ei toimi */
+option.punainen:hover {
+    background-color: white;
+    color: rgb(255, 89, 87);
+}
+
+@media(min-width:468px) {
+    .uloinBoksi {
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+        padding: 10px;
+        width: 50%;
+        margin: 0 auto;
+    }
+}
+
+/* skaalautuva banner-kuva! */
+.bannerBoksi {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.banner {
+    min-width: 0;
+    margin: 5px;
+}
+
+img {
+    width: 600px;
+    max-width: 100%;
+    max-height: 450px;
+}
+/*--------------------------------*/
+
+.yläpalkki {
+    display: flex;
+    justify-content: space-between;
+    background-color: pink;
+    max-height: 50px;
+}
+
+.yläpalkki div.teemavalikko {
+    flex: 1;
+    border: 1px #ccc solid;
+    padding: 10px;
+}
+
+.yläpalkki div.kirjautumisalue {
+    flex: 3;
+    display: inline-flex;
+    border: 1px #ccc solid;
+    padding: 10px;
+    align-items: flex-end;
+}
+
+.yläpalkki div.kirjautumisalue div.kirjautumisalue2 {
+    flex: 4;
+    display: inline-flex;
+    border: 1px #ccc solid;
+    padding: 10px;
+    flex-direction: row;
+    max-height: 20px;
+}
+
+.yläpalkki div.kirjautumisalue div.kirjautumisalue2 .kirjautumisalue3{
+    border: 1px #ccc solid;
+    padding: 10px;
+}
+
+.yläpalkki div.kirjautumisalue .kirjautumisalue4 {
+    flex: 1;
+}
+
+.junatietoRuutu {
+    display: flex;
+    flex-direction: column;
+    background-color: pink;
 }

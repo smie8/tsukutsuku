@@ -2,11 +2,15 @@
 
 var kirjautunutHenkilo = localStorage.getItem('kirjautunutNyt');
 
+console.log(kirjautunutHenkilo);
+
 if (!kirjautunutHenkilo) {
     localStorage.setItem("oletus", JSON.stringify({käyttäjänimi: "oletus", salasana: "",
         vari: "kel", lahto: "", paate: ""}));
     localStorage.setItem("kirjautunutNyt", JSON.parse(localStorage.getItem("oletus")).käyttäjänimi);
 }
+
+console.log(kirjautunutHenkilo);
 
 var kirjautunutHenkiloJson = JSON.parse(localStorage.getItem(kirjautunutHenkilo));
 
