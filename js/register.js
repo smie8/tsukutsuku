@@ -5,7 +5,9 @@ function rekisterointi() {
     var kirjautumistiedot = { //Luodaan JS objekti
         käyttäjänimi: inputUsername,
         salasana: inputPassword,
-        vari: "pun"
+        vari: "pun",
+        lahto: "",
+        paate: ""
     };
     //Tarkistetaan, onko käyttäjätunnusta olemassa ennestään
     if (!localStorage.getItem(inputUsername)) {

@@ -17,15 +17,9 @@ function kirjautuminen() {
         alert("Virheellinen käyttäjätunnus ja/tai salasana");
     }
 }
-//Aloitus.HTML sivulla olevan preferenssin talletus (Värivaihtoehto)
-
-// korjaile myöh.:
 
 var kirjautunutHenkilo = localStorage.getItem('kirjautunutNyt');
 var kirjautunutHenkiloJson = JSON.parse(localStorage.getItem(kirjautunutHenkilo));
-//var valinta = document.getElementById("valinnat").value;
-
-//document.getElementById("valinnat").value = kirjautunutHenkiloJson.vari;
 
 function preferenssi() {
     var valinta = document.getElementById("valinnat").value;
@@ -43,6 +37,8 @@ function kirjauduUlos() {
     if(kirjautunutHenkilo !== undefined){
         localStorage.setItem('kirjautunutNyt', undefined);
         kirjautunutHenkilo = undefined;
+        $("#asema1").attr("value", "");
+        $("#asema2").attr("value", "");
     }
 
 }

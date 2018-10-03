@@ -16,20 +16,6 @@ $.getJSON("files/asemat.json", function( data ) {
     });
 });
 
-// vanha versio:
-/*var asemat = {HKI: "Helsinki", JY: "Jyväskylä", KUO: "Kuopio", LH: "Lahti", OL: "Oulu",
-    ROI: "Rovaniemi", TPE: "Tampere", TKU: "Turku"};
-
-var lahtoasemanValinta = document.getElementById("lahtoasema");
-var paateasemanValinta = document.getElementById("paateasema");
-for (var id in asemat) {
-    var optio = document.createElement("option");
-    optio.value = id;
-    optio.innerText = asemat[id];
-    lahtoasemanValinta.appendChild(optio.cloneNode(true));
-    paateasemanValinta.appendChild(optio.cloneNode(true));
-}*/
-
 var taulukko = document.getElementById("haetuttiedot");
 var xhr = new XMLHttpRequest();
 var lahtoasema = "";
@@ -91,9 +77,16 @@ function haePerusTiedot(tulos) {
 var baseurl="https://rata.digitraffic.fi/api/v1";
 var loppuurl = "/live-trains/station/"
 
+$("#asema1").attr("value", kirjautunutHenkiloJson.lahto);
+$("#asema2").attr("value", kirjautunutHenkiloJson.paate);
+
 function haku() {
     lahtoasema = document.getElementById("asema1").value;
     paateasema = document.getElementById("asema2").value;
+    kirjautunutHenkiloJson.lahto=lahtoasema;
+    kirjautunutHenkiloJson.paate=paateasema;
+    localStorage.setItem(kirjautunutHenkilo, JSON.stringify(kirjautunutHenkiloJson));
+
     console.log(lahtoasema);
     console.log(paateasema);
     var osoite = baseurl + loppuurl + lahtoasema + "/" + paateasema;
