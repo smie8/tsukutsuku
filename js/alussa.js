@@ -87,3 +87,13 @@ function kirjauduUlos() {
     }
 
 }
+
+function piilota(event) {
+    var piilotettavaAlue = event.target.nextElementSibling;
+    //var piilotettavaAlue = document.getElementById("taul");
+    if (piilotettavaAlue.style.display === "none") {
+        piilotettavaAlue.style.display = "block";
+    } else {
+        piilotettavaAlue.style.display = "none";
+    }
+}

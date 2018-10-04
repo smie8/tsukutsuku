@@ -121,3 +121,19 @@ function tyhjennaTaulukko(taulukko) {
         taulukko.removeChild(taulukko.firstChild);
     }
 }
+
+
+function haekuvaa(event) {
+    $.getJSON('http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?', {
+        tags: "train",
+        tagmode: "any",
+        format: "json"
+    }).done(function (data) {
+        $(".junakuva").remove();
+        console.dir(data);
+        // voi käyttää jQueryn funktiota each()
+        for (var i = 0; i < data.items.length; i++) {
+            $("<img>").attr("src", data.items[i].media.m).attr("class", "junakuva").appendTo(".junaKuvat");
+        }
+    });
+}

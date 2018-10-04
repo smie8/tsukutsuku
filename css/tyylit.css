@@ -67,7 +67,7 @@ option.punainen:hover {
     margin: 5px;
 }
 
-img {
+img.banneriKuva {
     width: 600px;
     max-width: 100%;
     max-height: 450px;
@@ -79,6 +79,7 @@ img {
     justify-content: space-between;
     background-color: pink;
     max-height: 200px;
+    flex-wrap:wrap;
 }
 
 .yläpalkki div.teemavalikko {
@@ -93,6 +94,8 @@ img {
     border: 1px #ccc solid;
     padding: 10px;
     align-items: flex-end;
+    flex-wrap:wrap;
+    background-color: fuchsia;
 }
 
 .yläpalkki div.kirjautumisalue div.kirjautumisalue2 {
@@ -102,6 +105,8 @@ img {
     padding: 10px;
     flex-direction: row;
     max-height: 20px;
+    background-color: chartreuse;
+
 }
 
 .yläpalkki div.kirjautumisalue div.kirjautumisalue2 .kirjautumisalue3{
@@ -142,5 +147,22 @@ img {
 
 .kartanHakuKenttä {
     padding-top: 10px;
+}
+
+.kuvanpaikka {
+    background-color: darkcyan;
+    padding: 10px;
+}
+
+.junaKuvat {
+    display: flex;
+    /*justify-content: space-between;*/
+    flex-basis: 20%;
+    flex-wrap:wrap;
+    justify-content: center;
+}
+
+.junakuva {
+    padding: 10px;
 }
 
