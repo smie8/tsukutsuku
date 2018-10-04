@@ -44,15 +44,20 @@ option.punainen:hover {
     color: rgb(255, 89, 87);
 }
 
-@media(min-width:468px) {
+/*468px*/
+@media(min-width:800px) {
     .uloinBoksi {
-        display: flex;
-        flex-direction: column;
-        background-color: white;
-        padding: 10px;
-        width: 50%;
-        margin: 0 auto;
+
     }
+}
+
+.sisempiUloinBoksi {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 10px;
+    width: 65%;
+    margin: 0 auto;
 }
 
 /* skaalautuva banner-kuva! */

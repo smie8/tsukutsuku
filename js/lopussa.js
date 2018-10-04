@@ -122,8 +122,21 @@ function tyhjennaTaulukko(taulukko) {
     }
 }
 
+function piilota(event) {
+    //var piilotettavaAlue = event.target.nextElementSibling;
+    var piilotettavaAlue = document.getElementById(".junakuvat");
+    if (piilotettavaAlue.style.display === "none") {
+        console.log("testi1");
+        haekuvaa();
+        piilotettavaAlue.style.display = "block";
+    } else {
+        console.log("testi2");
+        piilotettavaAlue.style.display = "none";
+    }
+}
 
-function haekuvaa(event) {
+function haekuvaa() {
+    // if junakuvat.nextSibling (tms) -->
     $.getJSON('http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?', {
         tags: "train",
         tagmode: "any",
