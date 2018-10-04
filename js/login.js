@@ -41,14 +41,15 @@ function preferenssi() {
 }
 
 function kirjauduUlos() {
-
+    //console.log("metodi kutsuttu");
     if(kirjautunutHenkilo !== undefined){
         localStorage.setItem('kirjautunutNyt', undefined);
         kirjautunutHenkilo = undefined;
         $("#asema1").attr("value", "");
         $("#asema2").attr("value", "");
+        console.log("toimiii")
     }
-
+    //console.log("toimiiii????")
     $('#tervetuloaKirjautunut').text("");
     $('.kirjautuminen').show();
 

@@ -21,25 +21,20 @@ function rekisterointi() {
     }
 
     function kirjautuminenRekisteroinninJalkeen(kayttajanimi, salasana) {
+
+
  /*       var inputUsername = document.getElementById('username2');
         var inputPassword = document.getElementById('password2');
         var username = inputUsername.value;
         var password = inputPassword.value;*/
         var paikallinenData = JSON.parse(localStorage.getItem(kayttajanimi));
         //Sisäänkirjautuminen
-        if ((kayttajanimi == paikallinenData.käyttäjänimi) && (salasana == paikallinenData.salasana)) {
-            //Luodaan muuttuja, joka kertoo kuka on sisäänkirjautuneena.
-            var kirjautunut = paikallinenData.käyttäjänimi;
-            localStorage.setItem('kirjautunutNyt', kirjautunut);
-            alert("Tervetuloa palveluun " + paikallinenData.käyttäjänimi + "!");
-            window.location.href = "index.html";
+        var kirjautunut = paikallinenData.käyttäjänimi;
+        localStorage.setItem('kirjautunutNyt', kirjautunut);
+        alert("Tervetuloa palveluun " + paikallinenData.käyttäjänimi + "!");
+        window.location.href = "index.html";
             //$('.kirjautuminen').hide();
-
-
-            return false;
-        } else {
-            alert("Virheellinen käyttäjätunnus ja/tai salasana");
-        }
+        return false;
     }
 
 }

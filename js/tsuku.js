@@ -1,8 +1,7 @@
 if(kirjautunutHenkilo !== 'undefined') { //|| kirjautunutHenkilo == null
     $('.kirjautuminen').hide();
     document.getElementById('tervetuloaKirjautunut').append('Tervetuloa tsukutsukuun, ' + kirjautunutHenkilo);
-    console.log("Moro" + kirjautunutTeksti);
-
+    console.log("Moro");
 }
 
 
