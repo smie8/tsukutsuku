@@ -78,7 +78,7 @@ img {
     display: flex;
     justify-content: space-between;
     background-color: pink;
-    max-height: 50px;
+    max-height: 200px;
 }
 
 .yläpalkki div.teemavalikko {
@@ -125,3 +125,22 @@ img {
     background-color: bisque;
     padding: 10px;
 }
+
+.karttaBoksi {
+    display: flex;
+    flex-direction: column;
+    background-color: coral;
+    padding: 10px;
+    height: 500px;
+}
+
+#map {
+    flex: 90%;
+    height: 100%;
+    padding-bottom: 10px;
+}
+
+.kartanHakuKenttä {
+    padding-top: 10px;
+}
+
