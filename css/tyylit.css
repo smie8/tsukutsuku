@@ -60,6 +60,16 @@ option.punainen:hover {
     margin: 0 auto;
 }
 
+.rekisteröintiBoksiTausta {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    width: 30%;
+    margin: 0 auto;
+    padding: 10px;
+    text-align: center;
+}
+
 /* skaalautuva banner-kuva! */
 .bannerBoksi {
     display: flex;

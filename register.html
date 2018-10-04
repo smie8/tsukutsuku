@@ -4,16 +4,25 @@
     <meta charset="UTF-8">
     <title>Rekisteröinti</title>
     <script src="js/register.js"></script>
+    <link rel="stylesheet" href="css/tyylit.css"/>
 </head>
-<body>
+<body class="kel">
 
-<h2>Rekisteröinti</h2>
+<div class="uloinBoksi">
+
+<div class="rekisteröintiBoksiTausta">
+
+<h1>Rekisteröinti</h1>
 <p>Luo uusi käyttäjätunnus ja salasana</p>
 <form method="get" action="" onsubmit="return rekisterointi()" id="register">
     <input type="text" name="username" id="username" placeholder="Valitse käyttäjätunnus" required value="" /><br />
-    <input type="password" name="password" id="password" placeholder="Valitse salasana" required value="" /><br />
+    <input type="password" name="password" id="password" placeholder="Valitse salasana" required value="" /><br /><br/>
     <input type="submit" value="Rekisteröidy"/>
 </form>
+
+</div>
+
+</div>
 
 </body>
 </html>
