@@ -14,110 +14,122 @@
 
     <div class="sisempiUloinBoksi">
 
-<div class="bannerBoksi">
-<div class="banner"><img src="gfx/logo.png" class="banneriKuva"></div>
-</div>
+        <div class="bannerBoksi">
+            <div class="banner"><img src="gfx/logo.png" class="banneriKuva"></div>
+        </div>
 
-<div class="yläpalkki">
+        <div class="yläpalkki">
 
-<div class="teemavalikko">
-<select id="valinnat" onchange="muutaVaripreferenssi()" value="kel">
-    <option value="teema" disabled>Teema</option>
-    <option value="kel" class="keltainen">Pikachu</option>
-    <option value="pun" class="punainen">Cherry</option>
-    <option value="sin" class="sininen">Ocean</option>
-    <option value="vih" class="vihreä">Peppermint</option>
-</select>
-</div>
+            <div class="teemavalikko">
+                <select id="valinnat" onchange="muutaVaripreferenssi()" value="kel">
+                    <option value="teema" disabled>Teema</option>
+                    <option value="kel" class="keltainen">Pikachu</option>
+                    <option value="pun" class="punainen">Cherry</option>
+                    <option value="sin" class="sininen">Ocean</option>
+                    <option value="vih" class="vihreä">Peppermint</option>
+                </select>
+            </div>
 
-<div class="kirjautumisalue">
-<div class="piilotaKunKirjautunut">
-<div class="kirjautumisalue2">
-<p class="kirjautumisalue3">Kirjaudu sisään</p>
-<form method="get" action="" onsubmit="kirjautuminen(event)" id="signon">
-    <input type="text" id="username2" placeholder="Käyttäjätunnus" required value="" class="kirjautumisalue3"/>
-    <input type="password" id="password2" placeholder="Salasana" required value="" class="kirjautumisalue3"/>
-    <input type="submit" value="Kirjaudu" />
-</form>
-</div>
-</div>
+            <div class="kirjautumisalue">
+                <div class="piilotaKunKirjautunut">
+                    <div class="kirjautumisalue2">
+                        <form method="get" action="" onsubmit="kirjautuminen(event)" id="signon">
+                            <input type="text" id="username2" placeholder="Käyttäjätunnus" required value=""
+                                   class="kirjautumisalue3"/>
+                            <input type="password" id="password2" placeholder="Salasana" required value=""
+                                   class="kirjautumisalue3"/>
+                            <input type="submit" value="Kirjaudu"/>
+                        </form>
 
-<div class="piilotaKunKirjautunut">
-<a href="register.html" class="kirjautumisalue4">Ei käyttäjätunnusta? Rekisteröidy!</a>
-</div>
+                    </div>
+                </div>
 
-<p id="tervetuloa" class="kirjautumisalue5"></p>
-<input type="button" onclick="kirjauduUlos()" value="Kirjaudu ulos" class="piilotaKunOletus">
-</div>
-</div>
+                <div class="piilotaKunKirjautunut">
+                    <a href="register.html" class="kirjautumisalue4">Ei käyttäjätunnusta? Rekisteröidy!</a>
+                </div>
 
-<div class="junatietoRuutu">
-<h1>Hae junatietoja</h1>
+                <p id="tervetuloa" class="kirjautumisalue5"></p>
+                <input type="button" onclick="kirjauduUlos()" value="Kirjaudu ulos" class="piilotaKunOletus">
+            </div>
+        </div>
 
-<table>
-    <tr>
-        <th>Mistä</th>
-        <th>Mihin</th>
-    </tr>
-    <tr>
-        <td><input type="text" list="lahtoasema" id="asema1"><datalist id="lahtoasema">
-        </datalist></td>
-        <td><input type="text" list="paateasema" id="asema2"><datalist id="paateasema">
-        </datalist></td>
-    </tr>
-</table>
+        <div class="junatietoRuutu">
 
-
-<input type="date" id="lahtopaiva" name="valittuPaiva">
-
-<button onclick="haku();" id="hakukomento">Hae tiedot</button></br>
-
-
-<p>Junat välillä <span id="lahto"></span> - <span id="paate"></span>:</p>
-
-<table id="tietotaulukko">
-<thead>
-<tr>
-    <th>Juna</th>
-    <th>Lähtee</th>
-    <th>Saapuu</th>
-    <th>Määräasema</th>
-</tr>
-</thead>
-<tbody id="haetuttiedot"></tbody>
-</table>
-
-</div>
+            <div class="junahakuAlue">
+                <h1 style=text-align:center>Hae junatietoja</h1>
+                <table>
+                    <tr>
+                        <th>Mistä</th>
+                        <th>Mihin</th>
+                    </tr>
+                    <tr>
+                        <td><input type="text" list="lahtoasema" id="asema1">
+                            <datalist id="lahtoasema">
+                            </datalist>
+                        </td>
+                        <td><input type="text" list="paateasema" id="asema2">
+                            <datalist id="paateasema">
+                            </datalist>
+                        </td>
+                        <td><input type="date" id="lahtopaiva" name="valittuPaiva"></td>
+                        <td>
+                            <button onclick="haku();" id="hakukomento">Hae tiedot</button>
+                            </br></td>
+                    </tr>
+                </table>
 
 
-<div class="karttaBoksi">
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB7oekGNkRFIYf29W1-MlJaSPBGXQiQdWo&libraries=places&callback=initMap"
-            async defer></script>
+                <br/><br/><br/>
+
+            </div>
 
 
-    <div id="map" class="kartta"></div>
-    <div class="kartanHakuKenttä">
-    <span>Syötä osoite: </span><input type="text" id="automaattinentäyttö" style="width:200px" onclick="intilize();" placeholder="osoite">
+            <!--<p>Junat välillä <span id="lahto"></span> - <span id="paate"></span>:</p>-->
+
+            <table id="tietotaulukko">
+                <thead>
+                <tr>
+                    <th>Juna</th>
+                    <th>Lähtee</th>
+                    <th>Saapuu</th>
+                    <th>Määräasema</th>
+                </tr>
+                </thead>
+                <tbody id="haetuttiedot"></tbody>
+            </table>
+            <br/>
+        </div>
+
+
+        <div class="karttaBoksi">
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB7oekGNkRFIYf29W1-MlJaSPBGXQiQdWo&libraries=places&callback=initMap"
+                    async defer></script>
+
+
+            <div id="map" class="kartta"></div>
+            <div class="kartanHakuKenttä">
+                <span>Syötä osoite: </span><input type="text" id="automaattinentäyttö" style="width:200px"
+                                                  onclick="intilize();" placeholder="osoite">
+            </div>
+            <script src="js/autofill.js"></script>
+        </div>
+
+
+        <div class="kuvanpaikka">
+            <input type="button" value="Näytä junakuvia!" id="painike" onclick="haekuvaa(event);"><br/>
+            <!--<input type="button" value="Näytä junakuvia!" id="painike" onclick="piilota(event);"><br/>-->
+            <div class="junaKuvat">
+
+            </div>
+        </div>
+
+        <!-- sisempi uloin boksi div-sulku -->
     </div>
-    <script src="js/autofill.js"></script>
-</div>
 
 
-<div class="kuvanpaikka">
-    <input type="button" value="Näytä junakuvia!" id="painike" onclick="haekuvaa(event);"><br/>
-    <!--<input type="button" value="Näytä junakuvia!" id="painike" onclick="piilota(event);"><br/>-->
-    <div class="junaKuvat">
-
+    <!-- tähän on tulossa liikkuva juna scrollatessa -->
+    <div class="junaBoksi">
     </div>
-</div>
-
-<!-- sisempi uloin boksi div-sulku -->
-    </div>
-
-
-<!-- tähän on tulossa liikkuva juna scrollatessa -->
-<div class="junaBoksi">
-</div>
 
     <!-- tämä on uloimman boksin div-sulku: -->
 </div>

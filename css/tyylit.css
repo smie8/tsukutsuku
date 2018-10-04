@@ -95,7 +95,7 @@ img.banneriKuva {
 
 .yläpalkki div.kirjautumisalue {
     flex: 3;
-    display: inline-flex;
+    display: flex;
     border: 1px #ccc solid;
     padding: 10px;
     align-items: flex-end;
@@ -107,11 +107,9 @@ img.banneriKuva {
     flex: 4;
     display: inline-flex;
     border: 1px #ccc solid;
-    padding: 10px;
     flex-direction: row;
     max-height: 20px;
     background-color: chartreuse;
-
 }
 
 .yläpalkki div.kirjautumisalue div.kirjautumisalue2 .kirjautumisalue3{
@@ -127,7 +125,19 @@ img.banneriKuva {
     display: flex;
     flex-direction: column;
     background-color: mediumpurple;
-    text-align: center;
+    /*text-align: center;*/
+    justify-content: center;
+    padding: 10px;
+
+}
+
+.junahakuAlue {
+    /*width: 50%;*/
+    margin: 0 auto;
+}
+
+.junahakuAlue table {
+
 }
 
 .junaBoksi {
@@ -189,3 +199,12 @@ img.banneriKuva {
     padding: 10px;
 }
 
+#username2, #password2 {
+    max-height: 10px;
+    min-width: 30px;
+}
+
+#signon {
+    display: inline-flex;
+    flex-basis: 30%;
+}

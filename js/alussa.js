@@ -33,21 +33,6 @@ function muutaVaripreferenssi() {
     }
 }
 
-// TÄMÄN ALLA OLEVAN VOINEE POISTAA? -----------------------------------------------------------------------------------
-/*function preferenssi() {
-    var valinta = document.getElementById("valinnat").value;
-    // TO DO: lisää tarvittaessa muihinkin elementteihin sopiva class
-    // mikäli väriteema halutaan näkymään muussakin
-    $("body").attr("class", valinta);
-
-    /!* muutetaan sisäänkirjautuneen henkilön väripreferenssi niin että muistetaan jatkossakin,
-     * ei vaikuta oletuskäyttäjään *!/
-    if(kirjautunutHenkilo !== "oletus"){
-        kirjautunutHenkiloJson.vari=valinta;
-        localStorage.setItem(kirjautunutHenkilo, JSON.stringify(kirjautunutHenkiloJson));
-    }
-}
------------------------------------------------------------------------------------------------------------------------*/
 
 function preferenssit(käyttäjänimi) {
     henkilonData = palautaJSONdata(käyttäjänimi);
