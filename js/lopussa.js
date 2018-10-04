@@ -48,7 +48,7 @@ xhr.onreadystatechange = function() {
             console.dir(tulos);
             if (tulos.code === "TRAIN_NOT_FOUND") {
                 tyhjennaTaulukko(taulukko);
-                $("<span>").text("Ei junia annetuilla tiedoilla").appendTo("#haetuttiedot");
+                $("<span>").text("Suoria yhteyksiä ei löytynyt").appendTo("#haetuttiedot");
             } else {
                 haePerusTiedot(tulos);
             }
