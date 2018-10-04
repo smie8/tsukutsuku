@@ -112,7 +112,6 @@ img.banneriKuva {
 .kirjautumisalue {
     flex: 4;
     display: flex;
-    border: 1px #ccc solid;
     padding-top: 10px;
     padding-right: 10px;
     justify-content: space-between;
@@ -124,15 +123,12 @@ img.banneriKuva {
 kirjautumisalue2 {
     flex: 4;
     display: inline-flex;
-    border: 1px #ccc solid;
     flex-direction: row;
     max-height: 20px;
-    background-color: chartreuse;
-    padding: 5px;
+    /*padding: 5px;*/
 }
 
 .kirjautumisalue3 {
-    border: 1px #ccc solid;
     padding: 10px;
 }
 
@@ -165,7 +161,6 @@ kirjautumisalue2 {
 
 .junaBoksi {
     display: flex;
-    background-color: bisque;
     padding: 10px;
 }
 
