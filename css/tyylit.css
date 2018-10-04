@@ -105,7 +105,12 @@ img.banneriKuva {
 
 .teemavalikko {
     flex: 1;
+    display: flex;
     padding: 10px;
+    align-items: center;
+}
+
+#valinnat {
 
 }
 
@@ -114,8 +119,10 @@ img.banneriKuva {
     display: flex;
     padding-top: 10px;
     padding-right: 10px;
+    padding-left: 10px;
     justify-content: space-between;
     flex-direction: column;
+    align-items: center;
     align-items: flex-end;
     flex-wrap:wrap;
 }
@@ -132,8 +139,9 @@ kirjautumisalue2 {
     padding: 10px;
 }
 
-.kirjautumisalue4 {
-    flex: 1;
+.kirjautumisalue4, .kirjautumisalue5 {
+    /*flex: 1;*/
+    font-size: 12px;
 }
 
 .näytäKirjautuneelle {
