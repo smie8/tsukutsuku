@@ -1,3 +1,10 @@
+// Jos käyttäjä ei ole kirjautunut, uloskirjautumisnappi piilotetaan.
+if (kirjautunutHenkilo == "oletus") {
+    $('.piilotaKunOletus').hide();
+} else {
+    $('.piilotaKunOletus').show();
+}
+
 /* alustaa drop-down menut joista valita lähtö- ja pääteasema*/
 var lahtoasemanValinta = document.getElementById("lahtoasema");
 var paateasemanValinta = document.getElementById("paateasema");

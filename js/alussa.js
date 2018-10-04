@@ -9,6 +9,7 @@ if (!kirjautunutHenkilo) {
         vari: "kel", lahto: "", paate: ""}));
     localStorage.setItem("kirjautunutNyt", JSON.parse(localStorage.getItem("oletus")).käyttäjänimi);
     kirjautunutHenkilo = localStorage.getItem('kirjautunutNyt'); // Asetetaan tällä kirjautuneeksi henkilöksi oletus, mikäli kirjautunut henkilö oli null tai undefined
+
 }
 
 var kirjautunutHenkiloJson = JSON.parse(localStorage.getItem(kirjautunutHenkilo));
