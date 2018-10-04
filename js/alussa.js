@@ -2,15 +2,14 @@
 
 var kirjautunutHenkilo = localStorage.getItem('kirjautunutNyt');
 
-console.log(kirjautunutHenkilo);
+console.log("Kirjautunut henkilö1: " + kirjautunutHenkilo);
 
 if (!kirjautunutHenkilo) {
     localStorage.setItem("oletus", JSON.stringify({käyttäjänimi: "oletus", salasana: "",
         vari: "kel", lahto: "", paate: ""}));
     localStorage.setItem("kirjautunutNyt", JSON.parse(localStorage.getItem("oletus")).käyttäjänimi);
+    kirjautunutHenkilo = localStorage.getItem('kirjautunutNyt'); // Asetetaan tällä kirjautuneeksi henkilöksi oletus, mikäli kirjautunut henkilö oli null tai undefined
 }
-
-console.log(kirjautunutHenkilo);
 
 var kirjautunutHenkiloJson = JSON.parse(localStorage.getItem(kirjautunutHenkilo));
 
@@ -32,19 +31,21 @@ function muutaVaripreferenssi() {
     }
 }
 
-function preferenssi() {
+// TÄMÄN ALLA OLEVAN VOINEE POISTAA? -----------------------------------------------------------------------------------
+/*function preferenssi() {
     var valinta = document.getElementById("valinnat").value;
     // TO DO: lisää tarvittaessa muihinkin elementteihin sopiva class
     // mikäli väriteema halutaan näkymään muussakin
     $("body").attr("class", valinta);
 
-    /* muutetaan sisäänkirjautuneen henkilön väripreferenssi niin että muistetaan jatkossakin,
-     * ei vaikuta oletuskäyttäjään */
+    /!* muutetaan sisäänkirjautuneen henkilön väripreferenssi niin että muistetaan jatkossakin,
+     * ei vaikuta oletuskäyttäjään *!/
     if(kirjautunutHenkilo !== "oletus"){
         kirjautunutHenkiloJson.vari=valinta;
         localStorage.setItem(kirjautunutHenkilo, JSON.stringify(kirjautunutHenkiloJson));
     }
 }
+-----------------------------------------------------------------------------------------------------------------------*/
 
 function preferenssit(käyttäjänimi) {
     henkilonData = palautaJSONdata(käyttäjänimi);
