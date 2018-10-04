@@ -122,3 +122,32 @@ function tyhjennaTaulukko(taulukko) {
         taulukko.removeChild(taulukko.firstChild);
     }
 }
+
+function piilota(event) {
+    //var piilotettavaAlue = event.target.nextElementSibling;
+    var piilotettavaAlue = document.getElementById(".junakuvat");
+    if (piilotettavaAlue.style.display === "none") {
+        console.log("testi1");
+        haekuvaa();
+        piilotettavaAlue.style.display = "block";
+    } else {
+        console.log("testi2");
+        piilotettavaAlue.style.display = "none";
+    }
+}
+
+function haekuvaa() {
+    // if junakuvat.nextSibling (tms) -->
+    $.getJSON('http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?', {
+        tags: "train",
+        tagmode: "any",
+        format: "json"
+    }).done(function (data) {
+        $(".junakuva").remove();
+        console.dir(data);
+        // voi käyttää jQueryn funktiota each()
+        for (var i = 0; i < data.items.length; i++) {
+            $("<img>").attr("src", data.items[i].media.m).attr("class", "junakuva").appendTo(".junaKuvat");
+        }
+    });
+}
