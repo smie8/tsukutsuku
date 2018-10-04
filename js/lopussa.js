@@ -1,11 +1,13 @@
-// Jos käyttäjä ei ole kirjautunut, uloskirjautumisnappi piilotetaan.
+/* ===== uloskirjautumisnapin piilotus ===== */
+/* SE */
 if (kirjautunutHenkilo == "oletus") {
     $('.piilotaKunOletus').hide();
 } else {
     $('.piilotaKunOletus').show();
 }
 
-/* alustaa drop-down menut joista valita lähtö- ja pääteasema*/
+/* ===== asemavalikkojen alustus listasta asemia ===== */
+/* ET, (TT) */
 var lahtoasemanValinta = document.getElementById("lahtoasema");
 var paateasemanValinta = document.getElementById("paateasema");
 $.getJSON("files/asemat.json", function( data ) {
@@ -18,17 +20,19 @@ $.getJSON("files/asemat.json", function( data ) {
     });
 });
 
-/* piilottaa sisäänkirjautumisalueen, kun käyttäjä on kirjautunut */
+/* ===== sisäänkirjautumisalueen piilotus ===== */
+/* ET, SE */
 if ((kirjautunutHenkilo !== "oletus") && (kirjautunutHenkilo !== null) && (kirjautunutHenkilo !== undefined)) {
     console.log("tulostaaaa");
     $(".piilotaKunKirjautunut").hide();
     $("#tervetuloa").text("Tervetuloa, " + kirjautunutHenkiloJson.käyttäjänimi + "!").after("<span>&nbsp;&nbsp;</span>");
 }
 
-/* asettaa sisäänkirjautuneen käyttäjän preferenssit voimaan */
+/* ===== asettaa sisäänkirjautuneen käyttäjän preferenssit voimaan ===== */
 preferenssit(kirjautunutHenkilo);
 
-/* hakee junan tiedot digitrafficista*/
+/* ===== hakee junan tiedot digitrafficista sekä alustaa taulukon bodyn ===== */
+/* ET, (TT) */
 var taulukko = document.getElementById("haetuttiedot");
 var xhr = new XMLHttpRequest();
 var lahtoasema = "";
@@ -38,9 +42,7 @@ xhr.onreadystatechange = function() {
         if (xhr.status === 200) {
             var tulos = JSON.parse(xhr.responseText);
             console.dir(tulos);
-            // TO DO: myöhemmin tässä ohjataan käyttäjän valitseman toiminnallisuuden mukaiseen funktioon
             if (tulos.code === "TRAIN_NOT_FOUND") {
-                var tietotila = document.getElementById("#haetuttiedot");
                 tyhjennaTaulukko(taulukko);
                 $("<span>").text("Ei junia annetuilla tiedoilla").appendTo("#haetuttiedot");
             } else {
@@ -48,13 +50,13 @@ xhr.onreadystatechange = function() {
             }
         } else {
             alert("Haku epäonnistui");
-            // lisätoiminnallisuuksia
         }
 
     }
 };
 
 /* lisää junan tiedot index.html:ään*/
+/* ET, (SE), (TT) */
 function haePerusTiedot(tulos) {
     tyhjennaTaulukko(taulukko);
 
@@ -69,7 +71,6 @@ function haePerusTiedot(tulos) {
         var k = juna.timeTableRows.length-1;
         /* haetaan lähtöaseman indeksi timeTableRowsista */
         for (var jj in juna.timeTableRows) {
-            // testataan jyväskylällä
             if (juna.timeTableRows[jj].stationShortCode === lahtoasema && tulos[i].timeTableRows[jj].type === "DEPARTURE") {
                 j = jj;
             }
@@ -89,15 +90,15 @@ function haePerusTiedot(tulos) {
         $("<td>").text(juna.timeTableRows[k].stationShortCode + " " + saapumisaika).appendTo("#rivi"+i);
         $("<td>").text(juna.timeTableRows[juna.timeTableRows.length-1].stationShortCode).appendTo("#rivi"+i);
     }
-    preferenssit(kirjautunutHenkilo); // ---------------------------------
+    preferenssit(kirjautunutHenkilo);
 }
 
-// TO DO: myöhemmin lisätään erilaisia hakutoiminnallisuuksia, jolloin pitää luoda URLia muokkaava funktio
 /* muuttumattomat url-osat */
 var baseurl="https://rata.digitraffic.fi/api/v1";
 var loppuurl = "/live-trains/station/"
 
-/* avaa yhteyden junadataan, url-muodostuu käyttäjän valinnoista */
+/* ===== muodostaa url:n käyttäjän valinnoista ja avaa yhteyden junadataan ===== */
+/* ET, (TT) */
 function haku() {
     lahtoasema = document.getElementById("asema1").value;
     paateasema = document.getElementById("asema2").value;
@@ -107,21 +108,19 @@ function haku() {
         localStorage.setItem(kirjautunutHenkilo, JSON.stringify(kirjautunutHenkiloJson));
     }
 
-    console.log(lahtoasema);
-    console.log(paateasema);
-
     valittuPaiva = document.getElementById("lahtopaiva").value.toString();
     var osoite = baseurl + loppuurl + lahtoasema + "/" + paateasema + "/?departure_date=" + valittuPaiva;
-    console.log(osoite);
     xhr.open('get', osoite);
     xhr.send();
 }
 
+/* ET */
 function tyhjennaTaulukko(taulukko) {
     while (taulukko.firstChild) {
         taulukko.removeChild(taulukko.firstChild);
     }
 }
+
 
 function piilota(event) {
     //var piilotettavaAlue = event.target.nextElementSibling;
@@ -136,6 +135,8 @@ function piilota(event) {
     }
 }
 
+/* ===== hakee flickristä juna-aiheisia kuvia ===== */
+/* ET */
 function haekuvaa() {
     // if junakuvat.nextSibling (tms) -->
     $.getJSON('http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?', {

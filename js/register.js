@@ -1,3 +1,4 @@
+// NF, SE, (ET)
 function rekisterointi() {
     var inputUsername = document.getElementById('username').value;
     var inputPassword = document.getElementById('password').value;
@@ -9,7 +10,7 @@ function rekisterointi() {
         lahto: "",
         paate: ""
     };
-    //Tarkistetaan, onko käyttäjätunnusta olemassa ennestään
+    // Tarkistetaan, onko käyttäjätunnusta olemassa ennestään
     if (!localStorage.getItem(inputUsername)) {
         localStorage.setItem(inputUsername, JSON.stringify(kirjautumistiedot));
         alert("Rekisteröinti onnistui!");

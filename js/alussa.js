@@ -1,61 +1,52 @@
-/* globaalit yms. */
-
 var kirjautunutHenkilo = localStorage.getItem('kirjautunutNyt');
 
-console.log("Kirjautunut henkilö1: " + kirjautunutHenkilo);
-
+/* ===== asettaa oletus-käyttäjän kirjautuneeksi ===== */
+/* ET, NF, SE */
 if (!kirjautunutHenkilo) {
     localStorage.setItem("oletus", JSON.stringify({käyttäjänimi: "oletus", salasana: "",
         vari: "kel", lahto: "", paate: ""}));
     localStorage.setItem("kirjautunutNyt", JSON.parse(localStorage.getItem("oletus")).käyttäjänimi);
-    kirjautunutHenkilo = localStorage.getItem('kirjautunutNyt'); // Asetetaan tällä kirjautuneeksi henkilöksi oletus, mikäli kirjautunut henkilö oli null tai undefined
-
+    /* Asetetaan kirjautuneeksi henkilöksi oletus, mikäli kirjautunut henkilö oli null tai undefined */
+    kirjautunutHenkilo = localStorage.getItem('kirjautunutNyt');
 }
 
 var kirjautunutHenkiloJson = JSON.parse(localStorage.getItem(kirjautunutHenkilo));
 
+/* ET, NF, SE */
 function palautaJSONdata(username) {
     var paikallinenData = JSON.parse(localStorage.getItem(username));
     return paikallinenData;
 }
 
-/* väriteeman valinta: */
-
-//$("body").attr("class", kirjautunutHenkiloJson.vari);
-
+/* ===== väriteeman valinta väriteema-valikosta ===== */
+/* ET, (SE) */
 function muutaVaripreferenssi() {
     var valinta = document.getElementById("valinnat").value;
-    $("body").attr("class", valinta);
-    $("#haetuttiedot tr:nth-child(even)").attr("class", valinta);
-    $("#taulukonOtsikkorivi").attr("class", valinta);
-    $("#yläpalkki").attr("class", valinta);
-    $("#karttaboksi").attr("class", valinta);
+    $("body, #haetuttiedot tr:nth-child(even), #taulukonOtsikkorivi, #yläpalkki, #karttaboksi").attr("class", valinta);
+
     if (kirjautunutHenkilo !== "oletus") {
         kirjautunutHenkiloJson.vari = valinta;
         localStorage.setItem(kirjautunutHenkilo, JSON.stringify(kirjautunutHenkiloJson));
     }
 }
 
-
+/* ===== tarkistaa sisäänkirjautuneen väri- ja asemapreferenssit ===== */
+/* ET, (SE) */
 function preferenssit(käyttäjänimi) {
     henkilonData = palautaJSONdata(käyttäjänimi);
-    $("body").attr("class", henkilonData.vari);
-    $("#haetuttiedot tr:nth-child(even)").attr("class", henkilonData.vari);
-    $("#taulukonOtsikkorivi").attr("class", henkilonData.vari);
-    $("#yläpalkki").attr("class", henkilonData.vari);
-    $("#karttaboksi").attr("class", henkilonData.vari);
+    $("body, #haetuttiedot tr:nth-child(even), #taulukonOtsikkorivi, #yläpalkki, #karttaboksi").attr("class", henkilonData.vari);
     $("#asema1").attr("value", henkilonData.lahto);
     $("#asema2").attr("value", henkilonData.paate);
 }
 
+/* ===== tarkistaa onko syötetty käyttäjänimi ja salasana oikein ja kirjautuu sisään ===== */
+/* NF, SE */
 function kirjautuminen(event) {
     event.preventDefault();
     var username = document.getElementById('username2').value;
     var password = document.getElementById('password2').value;
-    //kirjauduSisaan(username, password);
     var henkilonData = palautaJSONdata(username);
     if (henkilonData) {
-        console.log(henkilonData.käyttäjänimi);
         if (username == henkilonData.käyttäjänimi) {
             if (password == henkilonData.salasana) {
                 var kirjautunutHenkilo = henkilonData.käyttäjänimi;
@@ -64,17 +55,16 @@ function kirjautuminen(event) {
                 window.location.href = "index.html";
                 return false;
             } else {
-                console.log("väärä");
                 alert("Virheellinen käyttäjätunnus ja/tai salasana");
             }
         }
     } else {
-            console.log("väärä");
-            alert("Virheellinen käyttäjätunnus ja/tai salasana");
+        alert("Virheellinen käyttäjätunnus ja/tai salasana");
     }
 }
 
-
+/* ===== kirjautuu ulos ja asettaa asemapreferenssit tyhjiksi ===== */
+/* ET, NF, SE */
 function kirjauduUlos() {
     if(kirjautunutHenkilo !== "oletus"){
         localStorage.setItem('kirjautunutNyt', "oletus");
@@ -83,6 +73,5 @@ function kirjauduUlos() {
         $("#asema2").attr("value", "");
         window.location.href = "index.html";
     }
-
 }
 

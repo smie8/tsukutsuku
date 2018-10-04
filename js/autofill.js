@@ -1,6 +1,8 @@
+/* NF */
 
 google.maps.event.addDomListener(window, 'load', intilize);
 
+/* ===== automaattinen täyttö, kun hakee osoitetta ===== */
 function intilize() {
     var autocomplete = new google.maps.places.Autocomplete(document.getElementById("automaattinentäyttö"));
     google.maps.event.addListener(autocomplete, 'place_changed', function() {
@@ -17,8 +19,8 @@ var gpslng;
 var map;
 var infowindow;
 
+/* ===== asettaa oletukseksi kartan hakijan lokaation mukaan ===== */
 function initMap() {
-
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function (position) {
             gpslat = position.coords.latitude;
@@ -30,6 +32,8 @@ function initMap() {
         initMap2()
     }
 }
+
+/* ===== listaa haetun lokaation läheiset juna-asemat radius-muuttujan etäisyydeltä ===== */
 function initMap2(l1,l2) {
     var sijainti;
     if (!l1) {
@@ -49,11 +53,11 @@ function initMap2(l1,l2) {
     var service = new google.maps.places.PlacesService(map);
     service.nearbySearch({
         location: sijainti,
-        //location: {lat: 65.06195509999999, lng: 25.50019580000003},
         radius: 10000,
         type: ['train_station']
     }, callback);
 }
+
 function callback(results, status) {
     if (status === google.maps.places.PlacesServiceStatus.OK) {
         for (var i = 0; i < results.length; i++) {
@@ -62,6 +66,7 @@ function callback(results, status) {
     }
 }
 
+/* ===== luo punaisen markerin kartalle asemien kohdalle ===== */
 function createMarker(place) {
     var placeLoc = place.geometry.location;
     var marker = new google.maps.Marker({
