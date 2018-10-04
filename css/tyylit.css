@@ -155,22 +155,24 @@ img.banneriKuva {
 }
 
 
-/* Tietotaulukko: */
-#haetuttiedot tr:nth-child(even).pun {
+/* Tietotaulukko ------> */
+#haetuttiedot tr:nth-child(even).pun, #taulukonOtsikkorivi.pun {
     background-color: var(--punainen);
 }
 
-#haetuttiedot tr:nth-child(even).sin {
+#haetuttiedot tr:nth-child(even).sin, #taulukonOtsikkorivi.sin {
     background-color: var(--sininen);
 }
 
-#haetuttiedot tr:nth-child(even).kel {
+#haetuttiedot tr:nth-child(even).kel, #taulukonOtsikkorivi.kel {
     background-color: var(--keltainen);
 }
 
-#haetuttiedot tr:nth-child(even).vih {
+#haetuttiedot tr:nth-child(even).vih, #taulukonOtsikkorivi.vih {
     background-color: var(--vihreä);
 }
+
+/* Tietotaulukko <-----*/
 
 .kuvanpaikka {
     background-color: darkcyan;

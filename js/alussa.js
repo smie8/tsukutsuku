@@ -26,7 +26,8 @@ function palautaJSONdata(username) {
 function muutaVaripreferenssi() {
     var valinta = document.getElementById("valinnat").value;
     $("body").attr("class", valinta);
-    $("#haetuttiedot tr:nth-child(even)").attr("class", valinta); // jou---------------------------------------------------------------
+    $("#haetuttiedot tr:nth-child(even)").attr("class", valinta);
+    $("#taulukonOtsikkorivi").attr("class", valinta);
     if (kirjautunutHenkilo !== "oletus") {
         kirjautunutHenkiloJson.vari = valinta;
         localStorage.setItem(kirjautunutHenkilo, JSON.stringify(kirjautunutHenkiloJson));
@@ -52,7 +53,8 @@ function muutaVaripreferenssi() {
 function preferenssit(käyttäjänimi) {
     henkilonData = palautaJSONdata(käyttäjänimi);
     $("body").attr("class", henkilonData.vari);
-    $("#haetuttiedot tr:nth-child(even)").attr("class", henkilonData.vari); // jou---------------------------------------------------------------
+    $("#haetuttiedot tr:nth-child(even)").attr("class", henkilonData.vari);
+    $("#taulukonOtsikkorivi").attr("class", henkilonData.vari);
     $("#asema1").attr("value", henkilonData.lahto);
     $("#asema2").attr("value", henkilonData.paate);
 }
