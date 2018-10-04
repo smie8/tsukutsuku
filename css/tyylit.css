@@ -116,5 +116,12 @@ img {
 .junatietoRuutu {
     display: flex;
     flex-direction: column;
-    background-color: pink;
+    background-color: mediumpurple;
+    text-align: center;
+}
+
+.junaBoksi {
+    display: flex;
+    background-color: bisque;
+    padding: 10px;
 }
