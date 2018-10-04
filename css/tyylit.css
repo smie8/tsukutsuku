@@ -144,3 +144,19 @@ img {
     padding-top: 10px;
 }
 
+/* Tietotaulukko: */
+#haetuttiedot tr:nth-child(even).pun {
+    background-color: var(--punainen);
+}
+
+#haetuttiedot tr:nth-child(even).sin {
+    background-color: var(--sininen);
+}
+
+#haetuttiedot tr:nth-child(even).kel {
+    background-color: var(--keltainen);
+}
+
+#haetuttiedot tr:nth-child(even).vih {
+    background-color: var(--vihreä);
+}

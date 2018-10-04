@@ -26,6 +26,7 @@ function palautaJSONdata(username) {
 function muutaVaripreferenssi() {
     var valinta = document.getElementById("valinnat").value;
     $("body").attr("class", valinta);
+    $("#haetuttiedot tr:nth-child(even)").attr("class", valinta); // jou---------------------------------------------------------------
     if (kirjautunutHenkilo !== "oletus") {
         kirjautunutHenkiloJson.vari = valinta;
         localStorage.setItem(kirjautunutHenkilo, JSON.stringify(kirjautunutHenkiloJson));
@@ -51,6 +52,7 @@ function muutaVaripreferenssi() {
 function preferenssit(käyttäjänimi) {
     henkilonData = palautaJSONdata(käyttäjänimi);
     $("body").attr("class", henkilonData.vari);
+    $("#haetuttiedot tr:nth-child(even)").attr("class", henkilonData.vari); // jou---------------------------------------------------------------
     $("#asema1").attr("value", henkilonData.lahto);
     $("#asema2").attr("value", henkilonData.paate);
 }
@@ -63,12 +65,17 @@ function kirjautuminen(event) {
     var henkilonData = palautaJSONdata(username);
     if (henkilonData) {
         console.log(henkilonData.käyttäjänimi);
-        if ((username == henkilonData.käyttäjänimi) && (password == henkilonData.salasana)) {
-            var kirjautunutHenkilo = henkilonData.käyttäjänimi;
-            localStorage.setItem('kirjautunutNyt', kirjautunutHenkilo);
-            alert("Tervetuloa palveluun " + kirjautunutHenkilo + "!");
-            window.location.href = "index.html";
-            return false;
+        if (username == henkilonData.käyttäjänimi) {
+            if (password == henkilonData.salasana) {
+                var kirjautunutHenkilo = henkilonData.käyttäjänimi;
+                localStorage.setItem('kirjautunutNyt', kirjautunutHenkilo);
+                alert("Tervetuloa palveluun " + kirjautunutHenkilo + "!");
+                window.location.href = "index.html";
+                return false;
+            } else {
+                console.log("väärä");
+                alert("Virheellinen käyttäjätunnus ja/tai salasana");
+            }
         }
     } else {
             console.log("väärä");

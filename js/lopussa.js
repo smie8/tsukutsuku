@@ -89,6 +89,7 @@ function haePerusTiedot(tulos) {
         $("<td>").text(juna.timeTableRows[k].stationShortCode + " " + saapumisaika).appendTo("#rivi"+i);
         $("<td>").text(juna.timeTableRows[juna.timeTableRows.length-1].stationShortCode).appendTo("#rivi"+i);
     }
+    preferenssit(kirjautunutHenkilo); // ---------------------------------
 }
 
 // TO DO: myöhemmin lisätään erilaisia hakutoiminnallisuuksia, jolloin pitää luoda URLia muokkaava funktio
