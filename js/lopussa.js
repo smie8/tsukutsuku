@@ -25,7 +25,7 @@ $.getJSON("files/asemat.json", function( data ) {
 if ((kirjautunutHenkilo !== "oletus") && (kirjautunutHenkilo !== null) && (kirjautunutHenkilo !== undefined)) {
     console.log("tulostaaaa");
     $(".piilotaKunKirjautunut").hide();
-    $("#tervetuloa").text("Tervetuloa, " + kirjautunutHenkiloJson.käyttäjänimi + "!").after("<span>&nbsp;&nbsp;</span>");
+    $("#tervetuloa").text("Tervetuloa, " + kirjautunutHenkiloJson.käyttäjänimi + "!"); // .after("<span>&nbsp;&nbsp;</span>")
 }
 
 /* ===== asettaa sisäänkirjautuneen käyttäjän preferenssit voimaan ===== */

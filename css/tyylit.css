@@ -7,6 +7,10 @@
     --vihreä: rgb(87, 255, 148);
 }
 
+body {
+    font-family: "Varela Round", sans-serif;
+}
+
 body.pun {
     /*background-color: rgb(255, 89, 87);*/
     background-color: var(--punainen);
@@ -49,7 +53,6 @@ option.punainen:hover {
 /*468px*/
 @media(min-width:800px) {
     .uloinBoksi {
-
     }
 }
 
@@ -96,25 +99,26 @@ img.banneriKuva {
     display: flex;
     justify-content: space-between;
     /* background-color: var(--keltainen); */
-    max-height: 200px;
-    flex-wrap:wrap;
+    max-height: 100px;
+    flex-wrap: wrap;
 }
 
 .teemavalikko {
     flex: 1;
-    border: 1px #ccc solid;
     padding: 10px;
 
 }
 
 .kirjautumisalue {
-    flex: 3;
+    flex: 4;
     display: flex;
     border: 1px #ccc solid;
-    padding: 10px;
+    padding-top: 10px;
+    padding-right: 10px;
+    justify-content: space-between;
+    flex-direction: column;
     align-items: flex-end;
     flex-wrap:wrap;
-
 }
 
 kirjautumisalue2 {
@@ -124,6 +128,7 @@ kirjautumisalue2 {
     flex-direction: row;
     max-height: 20px;
     background-color: chartreuse;
+    padding: 5px;
 }
 
 .kirjautumisalue3 {
@@ -133,6 +138,11 @@ kirjautumisalue2 {
 
 .kirjautumisalue4 {
     flex: 1;
+}
+
+.näytäKirjautuneelle {
+    display: inline-flex;
+    flex-direction: row;
 }
 
 .junatietoRuutu {
