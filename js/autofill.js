@@ -1,5 +1,5 @@
-google.maps.event.addDomListener(window, 'load', intilize);
 
+google.maps.event.addDomListener(window, 'load', intilize);
 
 function intilize() {
     var autocomplete = new google.maps.places.Autocomplete(document.getElementById("automaattinentäyttö"));
@@ -7,20 +7,33 @@ function intilize() {
         var paikka = autocomplete.getPlace();
         var latitude = paikka.geometry.location.lat();
         var longi = paikka.geometry.location.lng();
-        initMap(latitude, longi);
+        initMap2(latitude, longi);
 
     });
 };
 
+var gpslat;
+var gpslng;
 var map;
 var infowindow;
-function initMap(l1, l2) {
+
+function initMap() {
+
+
+    navigator.geolocation.getCurrentPosition(function (position) {
+        gpslat = position.coords.latitude;
+        gpslng = position.coords.longitude;
+        console.dir(position)
+        initMap2()
+    });
+}
+function initMap2(l1,l2) {
+    console.log("Moro");
 
     var sijainti;
     if (!l1) {
         if (!l2) {
-            // TO DO: hae läppärin gps
-            sijainti = {lat: 60.177160, lng: 24.833731};
+            sijainti = {lat: gpslat, lng: gpslng};
         }
     } else {
         sijainti = {lat: l1, lng: l2};
@@ -40,7 +53,6 @@ function initMap(l1, l2) {
         type: ['train_station']
     }, callback);
 }
-
 function callback(results, status) {
     if (status === google.maps.places.PlacesServiceStatus.OK) {
         for (var i = 0; i < results.length; i++) {
@@ -61,3 +73,4 @@ function createMarker(place) {
         infowindow.open(map, this);
     });
 }
+
