@@ -19,17 +19,18 @@ var infowindow;
 
 function initMap() {
 
-
-    navigator.geolocation.getCurrentPosition(function (position) {
-        gpslat = position.coords.latitude;
-        gpslng = position.coords.longitude;
-        console.dir(position)
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function (position) {
+            gpslat = position.coords.latitude;
+            gpslng = position.coords.longitude;
+            initMap2()
+        });
+    } else {
+        alert("Geopaikannusta ei ole tuettu tällä selaimella.")
         initMap2()
-    });
+    }
 }
 function initMap2(l1,l2) {
-    console.log("Moro");
-
     var sijainti;
     if (!l1) {
         if (!l2) {

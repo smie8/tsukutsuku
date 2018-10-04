@@ -75,6 +75,7 @@ option.punainen:hover {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    padding-bottom: 10px;
 }
 
 .banner {
@@ -89,31 +90,32 @@ img.banneriKuva {
 }
 /*--------------------------------*/
 
-.yläpalkki {
+#yläpalkki {
     display: flex;
     justify-content: space-between;
-    background-color: pink;
+    /* background-color: var(--keltainen); */
     max-height: 200px;
     flex-wrap:wrap;
 }
 
-.yläpalkki div.teemavalikko {
+.teemavalikko {
     flex: 1;
     border: 1px #ccc solid;
     padding: 10px;
+
 }
 
-.yläpalkki div.kirjautumisalue {
+.kirjautumisalue {
     flex: 3;
     display: flex;
     border: 1px #ccc solid;
     padding: 10px;
     align-items: flex-end;
     flex-wrap:wrap;
-    background-color: fuchsia;
+
 }
 
-.yläpalkki div.kirjautumisalue div.kirjautumisalue2 {
+kirjautumisalue2 {
     flex: 4;
     display: inline-flex;
     border: 1px #ccc solid;
@@ -122,19 +124,18 @@ img.banneriKuva {
     background-color: chartreuse;
 }
 
-.yläpalkki div.kirjautumisalue div.kirjautumisalue2 .kirjautumisalue3{
+.kirjautumisalue3 {
     border: 1px #ccc solid;
     padding: 10px;
 }
 
-.yläpalkki div.kirjautumisalue .kirjautumisalue4 {
+.kirjautumisalue4 {
     flex: 1;
 }
 
 .junatietoRuutu {
     display: flex;
     flex-direction: column;
-    background-color: mediumpurple;
     /*text-align: center;*/
     justify-content: center;
     padding: 10px;
@@ -156,10 +157,10 @@ img.banneriKuva {
     padding: 10px;
 }
 
-.karttaBoksi {
+#karttaboksi {
     display: flex;
     flex-direction: column;
-    background-color: coral;
+    /* background-color: coral; */
     padding: 10px;
     height: 500px;
 }
@@ -175,25 +176,26 @@ img.banneriKuva {
 }
 
 
-/* Tietotaulukko: */
-#haetuttiedot tr:nth-child(even).pun {
+/* Tietotaulukko ------> */
+#haetuttiedot tr:nth-child(even).pun, #taulukonOtsikkorivi.pun, #yläpalkki.pun, #karttaboksi.pun {
     background-color: var(--punainen);
 }
 
-#haetuttiedot tr:nth-child(even).sin {
+#haetuttiedot tr:nth-child(even).sin, #taulukonOtsikkorivi.sin, #yläpalkki.sin, #karttaboksi.sin {
     background-color: var(--sininen);
 }
 
-#haetuttiedot tr:nth-child(even).kel {
+#haetuttiedot tr:nth-child(even).kel, #taulukonOtsikkorivi.kel, #yläpalkki.kel, #karttaboksi.kel {
     background-color: var(--keltainen);
 }
 
-#haetuttiedot tr:nth-child(even).vih {
+#haetuttiedot tr:nth-child(even).vih, #taulukonOtsikkorivi.vih, #yläpalkki.vih, #karttaboksi.vih {
     background-color: var(--vihreä);
 }
 
+/* Tietotaulukko <-----*/
+
 .kuvanpaikka {
-    background-color: darkcyan;
     padding: 10px;
 }
 
