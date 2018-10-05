@@ -99,7 +99,7 @@ function haePerusTiedot(tulos) {
 
 /* muuttumattomat url-osat */
 var baseurl="https://rata.digitraffic.fi/api/v1";
-var loppuurl = "/live-trains/station/"
+var loppuurl = "/live-trains/station/";
 
 /* ===== muodostaa url:n käyttäjän valinnoista ja avaa yhteyden junadataan ===== */
 /* ET, (TT) */
