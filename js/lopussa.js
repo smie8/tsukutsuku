@@ -23,7 +23,6 @@ $.getJSON("files/asemat.json", function( data ) {
 /* ===== sisäänkirjautumisalueen piilotus ===== */
 /* ET, SE */
 if ((kirjautunutHenkilo !== "oletus") && (kirjautunutHenkilo !== null) && (kirjautunutHenkilo !== undefined)) {
-    console.log("tulostaaaa");
     $(".piilotaKunKirjautunut").hide();
     $("<i>person</i>").attr("class", "material-icons").css('font-size', '16px').appendTo('#tervetuloa');
     $("#tervetuloa").append(" " + kirjautunutHenkiloJson.käyttäjänimi); // .after("<span>&nbsp;&nbsp;</span>")
@@ -127,14 +126,12 @@ function tyhjennaTaulukko(taulukko) {
 
 
 function piilota(event) {
-    //var piilotettavaAlue = event.target.nextElementSibling;
-    var piilotettavaAlue = document.getElementById(".junakuvat");
+    var piilotettavaAlue = event.target.nextElementSibling;
+    //var piilotettavaAlue = document.getElementsByClassName("junaKuvat");
     if (piilotettavaAlue.style.display === "none") {
-        console.log("testi1");
         haekuvaa();
         piilotettavaAlue.style.display = "block";
     } else {
-        console.log("testi2");
         piilotettavaAlue.style.display = "none";
     }
 }
@@ -142,7 +139,6 @@ function piilota(event) {
 /* ===== hakee flickristä juna-aiheisia kuvia ===== */
 /* ET */
 function haekuvaa() {
-    // if junakuvat.nextSibling (tms) -->
     $.getJSON('http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?', {
         tags: "train",
         tagmode: "any",

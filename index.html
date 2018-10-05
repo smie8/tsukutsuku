@@ -108,7 +108,7 @@
 
             <div id="map" class="kartta"></div>
             <div class="kartanHakuKenttä">
-                <span>Syötä osoite: </span><input type="text" id="automaattinentäyttö" style="width:200px"
+                <span>Hae asemia lähellä osoitetta: </span><input type="text" id="automaattinentäyttö" style="width:200px"
                                                   onclick="intilize();" placeholder="osoite">
             </div>
             <script src="js/autofill.js"></script>
@@ -116,9 +116,9 @@
 
 
         <div class="kuvanpaikka">
-            <input type="button" value="Näytä junakuvia!" id="painike" onclick="haekuvaa(event);"><br/>
-            <!--<input type="button" value="Näytä junakuvia!" id="painike" onclick="piilota(event);"><br/>-->
-            <div class="junaKuvat">
+            <!--<input type="button" value="Näytä junakuvia!" id="painike" onclick="haekuvaa(event);"><br/>-->
+            <input type="button" value="Näytä junakuvia!" id="painike" onclick="piilota(event);" style="display: block;">
+            <div class="junaKuvat" style="display: none;">
 
             </div>
         </div>
